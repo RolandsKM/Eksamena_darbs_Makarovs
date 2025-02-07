@@ -33,7 +33,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 0.1rem solid #b41efa;
+    border-bottom: 0.2rem solid #b41efa;
 }
 
 
@@ -44,12 +44,13 @@ header {
 }
 
 .logo i {
-    color: var(--orange);
+    color: #fa1e7a;
 }
 
 .header_btn {
     display: flex;
     gap: .5rem;
+
 }
 
 .btn {
@@ -58,6 +59,7 @@ header {
     background: var(--light-color-2);
     color: var(--dark-color-1);
     padding: 0.5rem 1rem;
+    
 }
 .btn:hover {
     background: #fa1e7a;
