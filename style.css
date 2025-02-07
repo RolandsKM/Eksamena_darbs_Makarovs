@@ -1,0 +1,207 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    transition: 0.3s linear;
+}
+
+:root {
+    --orange: #b41efa;
+    --dark-color-1: #444;
+    --light-color-1: #fff;
+    --light-color-2: #f7f7f7;
+    --background-color: #e1e9ed;
+    --box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 10%);
+}
+
+body {
+    background: var(--light-color-2);
+}
+
+header {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    padding: 1rem 12%;
+    background: var(--light-color-1);
+    box-shadow: var(--box-shadow);
+    z-index: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 0.1rem solid #b41efa;
+}
+
+
+.logo {
+    color: var(--dark-color-1);
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.logo i {
+    color: var(--orange);
+}
+
+.header_btn {
+    display: flex;
+    gap: .5rem;
+}
+
+.btn {
+    font-size: 1rem;
+    border-radius: 0.5rem;
+    background: var(--light-color-2);
+    color: var(--dark-color-1);
+    padding: 0.5rem 1rem;
+}
+.btn:hover {
+    background: #fa1e7a;
+    color: var(--light-color-1);
+    cursor: pointer;
+}
+
+#start {
+    background: url("images/volunteer-background.png") no-repeat center center/cover;
+    height: 100vh;
+    display: flex;
+    flex-direction: column; /* Arrange child elements vertically */
+    justify-content: center;
+    align-items: center;
+    text-align: center; /* Align text to center */
+    padding: 2rem; /* Add padding for spacing */
+}
+
+.info {
+    margin-bottom: 2rem; /* Add spacing between the info and the search container */
+}
+
+.search-container {
+    display: flex;
+    background: var(--light-color-1);
+    border-radius: 0.5rem;
+    overflow: hidden;
+    box-shadow: var(--box-shadow);
+}
+
+.search-input {
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    border: none;
+    outline: none;
+    flex: 1;
+}
+
+.search-btn {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    background: var(--orange);
+    color: var(--light-color-1);
+    border: none;
+    cursor: pointer;
+}
+
+.search-btn:hover {
+    background: #fa1e7a;
+}
+
+#types {
+    display: flex;
+    flex-direction: column; /* Align child elements vertically */
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    background: var(--background-color);
+    padding: 2rem 0; /* Added padding for spacing */
+}
+
+.type-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    height: 300px; /* Set the height for the carousel */
+}
+
+.carousel-container {
+    width: 60%; /* Keep the container width as desired */
+    overflow: hidden;
+}
+
+.carousel {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.volunteer-type {
+    min-width: calc(50% - 1rem); /* Each item takes up 50% width minus margin */
+    padding: 2rem;
+    text-align: center;
+    font-size: 1.5rem;
+    background: var(--light-color-2);
+    border-radius: 0.5rem;
+    margin-right: 1rem; /* Margin between items */
+}
+
+.volunteer-type:last-child {
+    margin-right: 0; /* Remove the margin from the last item */
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--orange);
+    color: var(--light-color-1);
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: var(--box-shadow);
+}
+
+.carousel-btn:hover {
+    background: #fa1e7a;
+}
+
+.left-btn {
+    left: 10%;
+}
+
+.right-btn {
+    right: 10%;
+}
+
+.btn-container {
+    display: flex;
+    justify-content: center; /* Center the button horizontally */
+    width: 100%;
+    padding: 1rem 0; /* Add padding for spacing */
+}
+
+.normal-btn {
+    padding: 1rem 2rem; /* Making the button bigger */
+    font-size: 1.5rem; /* Increase font size */
+    background: var(--orange); /* Use the same color theme as other buttons */
+    color: var(--light-color-1);
+    border: none;
+    border-radius: 0.5rem; /* Rounded corners */
+    cursor: pointer;
+    text-align: center;
+    box-shadow: var(--box-shadow);
+}
+
+.normal-btn:hover {
+    background: #fa1e7a;
+}
