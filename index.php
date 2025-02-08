@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="lv">
 <head>
@@ -6,22 +9,24 @@
     <title>Vietējo brīvprātīgais centrs</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
-    <link rel="stylesheet" href="">
     <script src="script.js" defer></script>
 </head>
 <body>
     <header>
-        <a href="./" class="logo"><i class="fa-solid fa-handshake-angle"></i> Brīvprātīgais Centrs
-        </a>
+        <a href="./" class="logo"><i class="fa-solid fa-handshake-angle"></i> Brīvprātīgais Centrs</a>
         <div class="header_btn">
             <a class="btn" data-target="#modal-ticket">Par Mums</a>
             <a class="btn">Sludinājumi</a>
             <a class="btn">Kontakti</a>
             <a class="btn">Ziedot</a>
-            <a class="btn">Pieslēgties/Reģistrēties </a>
+            <?php if (isset($_SESSION['lietotajvards'])): ?>
+                <a href="user/profile.php" class="btn"> <?php echo htmlspecialchars($_SESSION['lietotajvards']); ?> </a>
+            <?php else: ?>
+                <a href="login.php" class="btn">Pieslēgties/Reģistrēties</a>
+            <?php endif; ?>
         </div>
     </header>
-   
+    
     <section id="start">
         <div class="info">
             <h1>Sveicināti vietējo brīvprātīgo centrā!</h1>
@@ -32,8 +37,6 @@
             <button class="search-btn">Meklēt</button>
         </div>
     </section>
-
-   
     
     <section id="types">
         <div class="type-container">
@@ -50,7 +53,7 @@
             </div>
             <button class="carousel-btn right-btn" onclick="nextSlide()">&#9655;</button>
         </div>
-
+        
         <!-- Button container -->
         <div class="btn-container">
             <button class="normal-btn">Vairāk</button>

@@ -1,33 +1,34 @@
 <?php
 session_start();
-require 'assets/con_db.php';
-
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
-    $lietotajvards = mysqli_real_escape_string($savienojums, $_POST['lietotajvards']);
-    $parole = $_POST['parole'];
-
-    $query = "SELECT * FROM Brivpratigo_lietotaji WHERE lietotajvards='$lietotajvards'";
-    $result = mysqli_query($savienojums, $query);
-
-    if ($result && mysqli_num_rows($result) == 1) {
-        $user = mysqli_fetch_assoc($result);
-        if (password_verify($parole, $user['parole'])) {
-            $_SESSION['lietotajvards'] = $user['lietotajvards'];
-            $_SESSION['lietotaju_ID'] = $user['lietotaju_ID'];
-            header("Location: welcome.php");
-            exit;
-        } else {
-            echo "Nepareiza parole!";
-        }
-    } else {
-        echo "Lietotājs neeksistē!";
-    }
-}
 ?>
-
-<form method="POST">
-    <input type="text" name="lietotajvards" placeholder="Lietotājvārds" required>
-    <input type="password" name="parole" placeholder="Parole" required>
-    <button type="submit" name="login">Pieslēgties</button>
-</form>
-<a href="register.php">Nav konta? Reģistrēties</a>
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vietējo Brīvprātīgais Centrs - Ielogošanās</title>
+    <link rel="stylesheet" href="../style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+</head>
+<body>
+    <div class="modal modal-active">
+        <div class="modal-box">
+            <h2>Ielogoties sistēmā</h2>
+            <?php
+                if (isset($_SESSION['pazinojums'])) {
+                    echo "<p class='login-notif'>" . $_SESSION['pazinojums'] . "</p>";
+                    unset($_SESSION['pazinojums']);
+                }
+            ?>
+            <form action="database/login_function.php" method="post">
+                <label>Lietotājvārds:</label>
+                <input type="text" name="lietotajs" required>
+                <label>Parole:</label>
+                <input type="password" name="parole" required>
+                <button type="submit" name="ielogoties" class="btn active">Ielogoties</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
