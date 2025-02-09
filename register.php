@@ -15,25 +15,75 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['register'])) {
               VALUES ('$lietotajvards', '$vards', '$uzvards', '$epasts', '$parole', '$vecums', '$dzimums')";
 
     if (mysqli_query($savienojums, $query)) {
-        echo "Reģistrācija veiksmīga! <a href='login.php'>Pieslēgties</a>";
+        $_SESSION['pazinojums'] = "Reģistrācija veiksmīga! Vari pieslēgties.";
+        header("Location: login.php");
+        exit();
     } else {
         echo "Kļūda: " . mysqli_error($savienojums);
     }
 }
 ?>
 
-<form method="POST">
-    <input type="text" name="lietotajvards" placeholder="Lietotājvārds" required>
-    <input type="text" name="vards" placeholder="Vārds" required>
-    <input type="text" name="uzvards" placeholder="Uzvārds" required>
-    <input type="email" name="epasts" placeholder="E-pasts" required>
-    <input type="password" name="parole" placeholder="Parole" required>
-    <input type="number" name="vecums" placeholder="Vecums" required>
-    <select name="dzimums">
-        <option value="male">Vīrietis</option>
-        <option value="female">Sieviete</option>
-        <option value="other">Cits</option>
-    </select>
-    <button type="submit" name="register">Reģistrēties</button>
-</form>
-<a href="login.php">Jau ir konts? Pieslēgties</a>
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reģistrācija | Brīvprātīgais Centrs</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="auth-container">
+    <div class="auth-box">
+        <h2><i class="fa-solid fa-user-plus"></i> Reģistrēties</h2>
+
+        <form method="POST">
+            <div class="input-group">
+                <label><i class="fa-solid fa-user"></i> Lietotājvārds</label>
+                <input type="text" name="lietotajvards" required>
+            </div>
+
+            <div class="input-group">
+                <label><i class="fa-solid fa-user"></i> Vārds</label>
+                <input type="text" name="vards" required>
+            </div>
+
+            <div class="input-group">
+                <label><i class="fa-solid fa-user"></i> Uzvārds</label>
+                <input type="text" name="uzvards" required>
+            </div>
+
+            <div class="input-group">
+                <label><i class="fa-solid fa-envelope"></i> E-pasts</label>
+                <input type="email" name="epasts" required>
+            </div>
+
+            <div class="input-group">
+                <label><i class="fa-solid fa-lock"></i> Parole</label>
+                <input type="password" name="parole" required>
+            </div>
+
+            <div class="input-group">
+                <label><i class="fa-solid fa-calendar"></i> Vecums</label>
+                <input type="number" name="vecums" >
+            </div>
+
+            <div class="input-group">
+                <label><i class="fa-solid fa-venus-mars"></i> Dzimums</label>
+                <select name="dzimums">
+                    <option value="male">Vīrietis</option>
+                    <option value="female">Sieviete</option>
+                    <option value="other">Cits</option>
+                </select>
+            </div>
+
+            <button type="submit" name="register" class="btn active">Reģistrēties</button>
+        </form>
+
+        <p class="switch-form">Jau ir konts? <a href="login.php">Pieslēgties</a></p>
+    </div>
+</div>
+
+</body>
+</html>

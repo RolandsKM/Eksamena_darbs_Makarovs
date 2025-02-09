@@ -24,3 +24,22 @@ function nextSlide() {
     index++;
     showSlide();
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+    const profileBtn = document.querySelector(".profile-btn");
+    const dropdownMenu = document.querySelector(".dropdown-menu");
+
+    if (profileBtn) {
+        profileBtn.addEventListener("click", function (event) {
+            event.stopPropagation(); // Prevent click from propagating to document
+            dropdownMenu.classList.toggle("show");
+        });
+    }
+
+    // Close dropdown when clicking outside
+    document.addEventListener("click", function (event) {
+        if (!profileBtn.contains(event.target) && !dropdownMenu.contains(event.target)) {
+            dropdownMenu.classList.remove("show");
+        }
+    });
+});

@@ -70,7 +70,7 @@ header {
 
 .profile-header {
     background: linear-gradient(90deg, #fa1e7a 100%, white 50%);
-    height: 150px;
+    height: 6rem;
 }
 
 .profile-content {
@@ -183,4 +183,75 @@ header {
 .toggle-buttons a.active {
     background-color: #b41efa; /* Highlight color */
     color: white;
+}
+
+#info{
+    padding: 2rem 12%;
+}
+.section-content{
+    padding: 2rem;
+    border-radius: .5rem;
+    box-shadow: var(--box-shadow);
+    margin-top: 1rem;
+    color: var(--dark-color-1);
+}
+
+/* Profile Dropdown */
+.profile-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.profile-btn {
+    background: var(--light-color-2);
+    color: var(--dark-color-1);
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    border: none;
+}
+
+.profile-btn:hover {
+    background: #fa1e7a;
+    color: white;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: white;
+    box-shadow: var(--box-shadow);
+    border-radius: 0.5rem;
+    overflow: hidden;
+    min-width: 150px;
+    z-index: 10;
+}
+
+.dropdown-menu.show {
+    display: block;
+}
+
+.dropdown-menu a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 15px;
+    color: var(--dark-color-1);
+    font-size: 1rem;
+    transition: background 0.3s;
+}
+
+.dropdown-menu a:hover {
+    background: #b41efa;
+    color: white;
+}
+
+.dropdown-menu i {
+    font-size: 1.2rem;
 }

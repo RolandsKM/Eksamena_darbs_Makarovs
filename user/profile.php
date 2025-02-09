@@ -59,13 +59,42 @@ $participatedEventList = ['Event A', 'Event B', 'Event C']; // Example: List of 
 <header>
     <a href="./" class="logo"><i class="fa-solid fa-handshake-angle"></i> Brīvprātīgais Centrs</a>
     <div class="header_btn">
-        <a class="btn" data-target="#modal-ticket">Par Mums</a>
+        <a class="btn">Par Mums</a>
         <a class="btn">Sludinājumi</a>
         <a class="btn">Kontakti</a>
         <a class="btn">Ziedot</a>
-        <a href="profile.php" class="btn"><?php echo htmlspecialchars($_SESSION['lietotajvards']); ?></a>
+
+        <!-- Profile Dropdown -->
+        <div class="profile-dropdown">
+            <button class="btn profile-btn">
+                <?php echo htmlspecialchars($_SESSION['lietotajvards']); ?> <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="dropdown-menu">
+                <a href="profile.php"><i class="fa-solid fa-user"></i> Profils</a>
+                <a href="../logout.php"><i class="fa-solid fa-sign-out-alt"></i> Iziet</a>
+            </div>
+        </div>
     </div>
 </header>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const profileBtn = document.querySelector(".profile-btn");
+        const dropdownMenu = document.querySelector(".dropdown-menu");
+
+        profileBtn.addEventListener("click", function (event) {
+            event.stopPropagation();
+            dropdownMenu.classList.toggle("show");
+        });
+
+        document.addEventListener("click", function (event) {
+            if (!profileBtn.contains(event.target) && !dropdownMenu.contains(event.target)) {
+                dropdownMenu.classList.remove("show");
+            }
+        });
+    });
+</script>
+
 
 <div class="profile-header"></div>
 
@@ -116,22 +145,14 @@ $participatedEventList = ['Event A', 'Event B', 'Event C']; // Example: List of 
     <div class="section-content">
         <!-- Sludinājumi Section -->
         <div id="sludinajumi" style="display: none;">
-            <h3>Sludinājumi (Created by You)</h3>
-            <ul>
-                <?php foreach ($createdEventList as $event): ?>
-                    <li><?php echo $event; ?></li>
-                <?php endforeach; ?>
-            </ul>
+            <h3>Jūsu Sludinājumi</h3>
+            
         </div>
 
         <!-- Vēsture Section -->
         <div id="vesture" style="display: none;">
-            <h3>Vēsture (Events You Joined)</h3>
-            <ul>
-                <?php foreach ($participatedEventList as $event): ?>
-                    <li><?php echo $event; ?></li>
-                <?php endforeach; ?>
-            </ul>
+            <h3>Vēsture</h3>
+          
         </div>
     </div>
 </section>

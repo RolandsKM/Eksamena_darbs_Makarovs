@@ -68,21 +68,35 @@ header {
 }
 
 #start {
+    position: relative;
     background: url("images/volunteer-background.png") no-repeat center center/cover;
     height: 100vh;
     display: flex;
-    flex-direction: column; /* Arrange child elements vertically */
+    flex-direction: column; 
     justify-content: center;
     align-items: center;
-    text-align: center; /* Align text to center */
-    padding: 2rem; /* Add padding for spacing */
+    text-align: center; 
+    padding: 2rem; 
+}
+
+#start::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(187, 98, 228, 0.344); /* Adjust the transparency (0 = fully transparent, 1 = fully opaque) */
+    z-index: 0; /* Places the overlay behind the text */
 }
 
 .info {
-    margin-bottom: 2rem; /* Add spacing between the info and the search container */
+    z-index: 1;
+    margin-bottom: 2rem; 
 }
 
 .search-container {
+    z-index: 1;
     display: flex;
     background: var(--light-color-1);
     border-radius: 0.5rem;
@@ -113,13 +127,13 @@ header {
 
 #types {
     display: flex;
-    flex-direction: column; /* Align child elements vertically */
+    flex-direction: column; 
     justify-content: center;
     align-items: center;
     position: relative;
     width: 100%;
     background: var(--background-color);
-    padding: 2rem 0; /* Added padding for spacing */
+    padding: 2rem 0; 
 }
 
 .type-container {
@@ -128,11 +142,11 @@ header {
     align-items: center;
     width: 100%;
     position: relative;
-    height: 300px; /* Set the height for the carousel */
+    height: 300px; 
 }
 
 .carousel-container {
-    width: 60%; /* Keep the container width as desired */
+    width: 60%; 
     overflow: hidden;
 }
 
@@ -142,17 +156,17 @@ header {
 }
 
 .volunteer-type {
-    min-width: calc(50% - 1rem); /* Each item takes up 50% width minus margin */
+    min-width: calc(50% - 1rem);
     padding: 2rem;
     text-align: center;
     font-size: 1.5rem;
     background: var(--light-color-2);
     border-radius: 0.5rem;
-    margin-right: 1rem; /* Margin between items */
+    margin-right: 1rem;
 }
 
 .volunteer-type:last-child {
-    margin-right: 0; /* Remove the margin from the last item */
+    margin-right: 0;
 }
 
 .carousel-btn {
@@ -187,18 +201,18 @@ header {
 
 .btn-container {
     display: flex;
-    justify-content: center; /* Center the button horizontally */
+    justify-content: center; 
     width: 100%;
-    padding: 1rem 0; /* Add padding for spacing */
+    padding: 1rem 0; 
 }
 
 .normal-btn {
-    padding: 1rem 2rem; /* Making the button bigger */
-    font-size: 1.5rem; /* Increase font size */
-    background: var(--orange); /* Use the same color theme as other buttons */
+    padding: 1rem 2rem; 
+    font-size: 1.5rem; 
+    background: var(--orange);
     color: var(--light-color-1);
     border: none;
-    border-radius: 0.5rem; /* Rounded corners */
+    border-radius: 0.5rem; 
     cursor: pointer;
     text-align: center;
     box-shadow: var(--box-shadow);
@@ -206,4 +220,206 @@ header {
 
 .normal-btn:hover {
     background: #fa1e7a;
+}
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: var(--light-color-2);
+}
+
+.auth-box {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: var(--box-shadow);
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+}
+
+.auth-box h2 {
+    margin-bottom: 1rem;
+    color: var(--dark-color-1);
+}
+
+.input-group {
+    text-align: left;
+    margin-bottom: 1rem;
+}
+
+.input-group label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.input-group input, .input-group select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+}
+
+.switch-form {
+    margin-top: 10px;
+}
+
+.switch-form a {
+    color: #b41efa;
+    font-weight: bold;
+}
+
+.login-notif {
+    background: #b41efa;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+/* Close Button */
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 20px;
+    color: #333;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.close-btn:hover {
+    color: #b41efa;
+}
+
+#start .info h1{
+    color: var(--light-color-2);
+    
+}
+#start .info p{
+    color: var(--light-color-2);
+    
+}
+
+
+#filters {
+    background: var(--background-color);
+    padding: 2rem;
+    text-align: center;
+}
+
+#filters h2 {
+    color: var(--dark-color-1);
+    margin-bottom: 1rem;
+}
+
+.filter-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    background: var(--light-color-1);
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: var(--box-shadow);
+    width: 50%;
+    margin: 0 auto;
+}
+
+.search-input, .filter-dropdown {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+}
+
+.checkbox-group {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.checkbox-group label {
+    font-size: 1rem;
+    color: var(--dark-color-1);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.search-btn {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    background: var(--orange);
+    color: var(--light-color-1);
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+.search-btn:hover {
+    background: #fa1e7a;
+}
+
+.profile-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.profile-btn {
+    background: var(--light-color-2);
+    color: var(--dark-color-1);
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    border: none;
+}
+
+.profile-btn:hover {
+    background: #fa1e7a;
+    color: white;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: white;
+    box-shadow: var(--box-shadow);
+    border-radius: 0.5rem;
+    overflow: hidden;
+    min-width: 150px;
+    z-index: 10;
+}
+
+.dropdown-menu.show {
+    display: block;
+}
+
+.dropdown-menu a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 15px;
+    color: var(--dark-color-1);
+    font-size: 1rem;
+    transition: background 0.3s;
+}
+
+.dropdown-menu a:hover {
+    background: #b41efa;
+    color: white;
+}
+
+.dropdown-menu i {
+    font-size: 1.2rem;
 }

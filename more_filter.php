@@ -6,11 +6,10 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vietējo brīvprātīgais centrs</title>
+    <title>Vietējo brīvprātīgais centrs - Filtri</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
     <script src="script.js" defer></script>
-    
 </head>
 <body>
     <header>
@@ -36,38 +35,37 @@ session_start();
 
         </div>
     </header>
-    
-    <section id="start">
-        <div class="info">
-            <h1>Sveicināti vietējo brīvprātīgo centrā!</h1>
-            <p>Vietējo brīvprātīgais centrs ir lieliska vieta kur dod roku lai izpalīdzētu saviem vietējiem un pastiprinātu draudzību ar apkārtējiem.</p>
-        </div>
-        <div class="search-container">
+
+    <section id="filters">
+        <h2>Atrodiet brīvprātīgo iespējas</h2>
+        <div class="filter-container">
             <input type="text" placeholder="Meklēt..." class="search-input">
+            
+            <select class="filter-dropdown">
+                <option value="">Izvēlieties kategoriju</option>
+                <option value="environment">Vides Aizsardzība</option>
+                <option value="animals">Dzīvnieku Palīdzība</option>
+                <option value="education">Izglītība</option>
+                <option value="social">Sociālā Palīdzība</option>
+                <option value="sports">Sporta Brīvprātīgie</option>
+                <option value="arts">Mākslas un Kultūras Pasākumi</option>
+            </select>
+
+            <select class="filter-dropdown">
+                <option value="">Izvēlieties atrašanās vietu</option>
+                <option value="riga">Rīga</option>
+                <option value="liepaja">Liepāja</option>
+                <option value="ventspils">Ventspils</option>
+                <option value="daugavpils">Daugavpils</option>
+            </select>
+
+            <div class="checkbox-group">
+              
+            </div>
+
             <button class="search-btn">Meklēt</button>
         </div>
     </section>
-    
-    <section id="types">
-        <div class="type-container">
-            <button class="carousel-btn left-btn" onclick="prevSlide()">&#9665;</button>
-            <div class="carousel-container">
-                <div class="carousel">
-                    <div class="volunteer-type">Vides Aizsardzība</div>
-                    <div class="volunteer-type">Dzīvnieku Palīdzība</div>
-                    <div class="volunteer-type">Izglītība</div>
-                    <div class="volunteer-type">Sociālā Palīdzība</div>
-                    <div class="volunteer-type">Sporta Brīvprātīgie</div>
-                    <div class="volunteer-type">Mākslas un Kultūras Pasākumi</div>
-                </div>
-            </div>
-            <button class="carousel-btn right-btn" onclick="nextSlide()">&#9655;</button>
-        </div>
-        
-        <!-- Button container -->
-        <div class="btn-container">
-    <a href="more_filter.php" class="normal-btn">Vairāk</a>
-</div>
-    </section>
+
 </body>
 </html>
