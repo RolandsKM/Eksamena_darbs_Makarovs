@@ -54,7 +54,7 @@ Projekts ir pieejams tiešsaistē: [http://165.227.158.55/Local_V_Center/main/in
 
 ### Frontend
 - **HTML5** - Mājaslapas struktūra
-- **CSS3** - Vizuālais noformējums un responsīvs dizains
+- **CSS/Bootstrap** - Vizuālais noformējums un responsīvs dizains
 - **JavaScript** - Interaktivitāte un dinamiska funkcionalitāte
 
 ### Backend
@@ -68,6 +68,8 @@ Projekts ir pieejams tiešsaistē: [http://165.227.158.55/Local_V_Center/main/in
 - **Chrome DevTools** - Atkļūdošana un testēšana
 - **Draw.io** - UML diagrammu izveide
 
-## 📊 Sistēmas arhitektūra
+## 📊 Admiņ sadaļa:
+- **E-pasts** - admin@gmail.com
+- **Parole** - parole123
 
-Projekts izmanto tradicionālo trīsslāņu arhitektūru:
+
